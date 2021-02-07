@@ -332,7 +332,7 @@ a {
   background-color: #7c8280;
   background-size: cover;
   background-position: center;
-  background-image: url('https://ftp.bmp.ovh/imgs/2021/02/fe5ee5dee536e82d.jpg');
+  background-image: url('../media/images/sidebar-bg.jpg');
   display: flex;
   flex-direction: column;
   box-shadow: 12px 0px 10px #161313;
