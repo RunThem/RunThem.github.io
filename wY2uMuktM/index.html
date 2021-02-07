@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Git常用命令 | RunThem</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://iccy.fun/favicon.ico?v=1612714486768">
+<link rel="stylesheet" href="https://iccy.fun/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="学习一下Git的常用命令, 以便后面的学习与工作中使用Git
+
+Git常用命令
+
+这两天在学习Git的使用, 虽然之前也使用过, 但仅限于add commit push pull等命令, 对于分支什么的都没用过, 所以找了教程来看看, 主要..." />
+    <meta name="keywords" content="Git" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://iccy.fun">
+        <img src="https://iccy.fun/images/avatar.png?v=1612714486768" class="site-logo">
+        <h1 class="site-title">RunThem</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/RunThem" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <a href="mailto:iccy.fun@outlook.com"><img src="media/images/mail.png" width="18px" /></a>
+    </div>
+    <div class="site-description">
+      人生不断地重复两件事, 其中之一就是做出选择!
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://iccy.fun/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Git常用命令</h2>
+            <div class="post-date">2020-03-11</div>
+            
+              <div class="feature-container" style="background-image: url('https://iccy.fun/post-images/wY2uMuktM.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>学习一下<code>Git</code>的常用命令, 以便后面的学习与工作中使用<code>Git</code></p>
+<!-- more -->
+<p>Git常用命令</p>
+<blockquote>
+<p>这两天在学习Git的使用, 虽然之前也使用过, 但仅限于add commit push pull等命令, 对于分支什么的都没用过, 所以找了教程来看看, 主要参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的教程</a>和一个<a href="https://learngitbranching.js.org/">在线Git练习网站</a></p>
+</blockquote>
+<blockquote>
+<p>注: 不会将参考教程时实际演示的指令记录下来, 因为这是不必要的</p>
+</blockquote>
+<hr>
+<h2 id="让我们开始吧">让我们开始吧</h2>
+<h3 id="配置git">配置Git</h3>
+<p>安装Git后执行以下命令</p>
+<pre><code class="language-shell">git config --global user.name &quot;Your name&quot;
+git config --global user.email &quot;Your email&quot;
+</code></pre>
+<p>Git是团队使用的版本控制系统, 每一次提交都是需要自报家门的, --global参数是表示该机器上所有的Git仓库都使用该配置, 当然也可以分不同的配置, 不过就不提了, 这个配置很适合个人机器</p>
+<p>配置ssh秘钥</p>
+<pre><code class="language-shell">ssh-keygen -t rsa -C &quot;Your email&quot;
+</code></pre>
+<hr>
+<h3 id="创建版本库">创建版本库</h3>
+<pre><code class="language-shell">git init # 创建一个版本库
+</code></pre>
+<h3 id="状态查看">状态查看</h3>
+<pre><code class="language-shell">git status # 查看仓库的状态, 是否有修改, 是否add
+</code></pre>
+<h3 id="添加到暂存区">添加到暂存区</h3>
+<pre><code class="language-shell">git add &lt;file name&gt; # 将工作区修改的改动添加到暂存区, 支持文件夹, 例如git add . 添加整个当前目录下所有的改动
+</code></pre>
+<h3 id="提交到仓库">提交到仓库</h3>
+<pre><code class="language-shell">git commit -m &quot;message&quot; # 对当前commit做一个简短的说明
+</code></pre>
+<h3 id="查看区别">查看区别</h3>
+<pre><code class="language-shell">git diff &lt;file name&gt; # 前提是未提交到仓库的修改, 可以查看当前修改后的文件和最新的仓库版本中的同文件的改动
+</code></pre>
+<h3 id="提交日志">提交日志</h3>
+<pre><code class="language-shell">git log # 查看所有的commit即提交说明
+git log --graph # 查看分支合并图
+</code></pre>
+<h3 id="版本回退">版本回退</h3>
+<pre><code class="language-shell">git reset [--soft | --mixed | --hard] &lt;commit&gt; # 回退到某个版本, --hard参数是不保存已存在的修改,　其他两个参数是保存修改, 默认参数是--soft
+</code></pre>
+<h3 id="历史命令">历史命令</h3>
+<pre><code class="language-shell">git reflog # 显示你使用过的历史命令
+</code></pre>
+<h3 id="撤销修改">撤销修改</h3>
+<pre><code class="language-shell">git checkout -- &lt;file name&gt; # 若文件在暂存区, 撤销修改就和版本库一样, 若文件在暂存区了, 撤销修改就回到了添加到暂存区后的状态
+git reset HEAD &lt;file name&gt; # 将暂存区的文件退回到工作区
+# 场景1: 文件还没有添加到暂存区, 使用git checkout -- &lt;file name&gt; 丢弃文件
+# 场景2: 文件已经添加到暂存区, 使用git reset HEAD &lt;file name&gt; 回到了场景1, 若要丢弃文件, 执行场景1, 若修改, 正常来即可, reset可以将暂存区的文件保存原理看[版本回退]
+</code></pre>
+<h3 id="删除被git追踪的文件">删除被Git追踪的文件</h3>
+<pre><code class="language-shell"># 先要删除文件
+git rm &lt;file name&gt; # 从版本库中删除该文件
+# 另一种是删错了
+git checkout -- &lt;file name&gt; 使用版本库中的版本替换工作区中的版本
+</code></pre>
+<h3 id="远程仓库">远程仓库</h3>
+<pre><code class="language-shell">git remote add origin git地址 # 将本地仓库与之关联, 这是先有本地仓库, origin就是远程仓库的名字, 也可以使用其他的, 但不推荐, 
+git clone git地址 # 这是先有远程仓库, 将其克隆下来
+</code></pre>
+<h3 id="push">push</h3>
+<pre><code class="language-shell">git push -u origin master # 第一次提交, 加上-u参数, 为以后提交简化命令, 默认参数就是origin master, 后面可以不用写, 但是你的远程还有一个dev分支的话, 要提交dev上就要指定参数了
+</code></pre>
+<h3 id="创建分支">创建分支</h3>
+<pre><code class="language-shell">git branch &lt;分支名&gt; # 创建分支
+git checkout &lt;分支名&gt; # 切换分支
+# 可以使用git checkout -b &lt;分支名&gt; 同时执行上面两条指令
+
+git switch &lt;分支名&gt; # 切换分支, 但是是新版Git才有的功能
+git switch -c &lt;分支名&gt; # 创建并切换分支
+
+git checkout -b &lt;本地分支&gt; &lt;origin/远程分支&gt;, 创建远程分支并关联到本地分支
+git branch --set-upstream-to=&lt;origin/远程分支&gt; &lt;本地分支&gt; # 设置本地分支和远程分支的关联
+</code></pre>
+<h3 id="查看分支">查看分支</h3>
+<pre><code class="language-shell">git branch # 查看当前仓库的分支
+</code></pre>
+<h3 id="删除分支">删除分支</h3>
+<pre><code class="language-shell">git branch -d &lt;分支名&gt; # 删除分支, 假如有一个分支不需要合并, 此时删除就需要使用-D参数来强制删除该分支
+</code></pre>
+<h3 id="合并分支">合并分支</h3>
+<pre><code class="language-shell">git merge &lt;分支名&gt; # 将某分支合并到当前分支, 快速合并和手动合并(有冲突), 使用Fast forward模式, 下面禁用该模式
+git merge --no-ff -m &quot;message&quot; &lt;分支名&gt; # 将某分支合并到当前分支的同时创建一个commit来备注
+</code></pre>
+<h3 id="保存工作现场">保存工作现场</h3>
+<pre><code class="language-shell">git stash # 将当前工作现场保存起来, git status是干净的
+git stash list # 查看所有的工作现场
+git stash apply # 恢复工作现场, stash内容不删除, 需要使用git stash drop来删除
+git stash pop # 恢复工作现场的同时删除stash内容
+</code></pre>
+<h3 id="复制某次提交">复制某次提交</h3>
+<pre><code class="language-shell">git cherry-pick &lt;commit&gt; 将该次提交复制到当前分支上, 可以在多条分支上修复同一个bug
+</code></pre>
+<h3 id="查看远程仓库信息">查看远程仓库信息</h3>
+<pre><code class="language-shell">git remote -v
+</code></pre>
+<h3 id="标签">标签</h3>
+<pre><code class="language-shell">git tag &lt;tag&gt; &lt;commit&gt; # 给某次commit打上标签, 好记, 若没有commit参数, 就是默认当前分支的最新commit
+git tag # 查看所有标签
+git tag &lt;tag&gt; -m &quot;message&quot; &lt;commit&gt; # 创建带有说明的标签
+git tag -d &lt;tag&gt; # 删除标签
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iccy.fun/OzNaUbsZ3/" class="tag">
+                    Git
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://iccy.fun/7NHiOmMT8/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://iccy.fun</id>
+    <title>RunThem</title>
+    <updated>2021-02-07T16:14:49.952Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://iccy.fun"/>
+    <link rel="self" href="https://iccy.fun/atom.xml"/>
+    <subtitle>人生不断地重复两件事, 其中之一就是做出选择!</subtitle>
+    <logo>https://iccy.fun/images/avatar.png</logo>
+    <icon>https://iccy.fun/favicon.ico</icon>
+    <rights>All rights reserved 2021, RunThem</rights>
+    <entry>
+        <title type="html"><![CDATA[Golang学习之入门]]></title>
+        <id>https://iccy.fun/so4r6yv9y/</id>
+        <link href="https://iccy.fun/so4r6yv9y/">
+        </link>
+        <updated>2021-02-07T15:33:49.000Z</updated>
+        <summary type="html"><![CDATA[<p><code>Golang</code>是<code>Google</code>开发的一门现代化的编程语言, 在这里记录一下它的语法</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><code>Golang</code>是<code>Google</code>开发的一门现代化的编程语言, 在这里记录一下它的语法</p>
+<!-- more -->
+<h1 id="golang关键字">Golang关键字</h1>
+<pre><code class="language-go">break           default       func      interface    select
+case            defer         go        map          struct
+chan            else          goto      package      switch
+const           fallthrough   if        range        type
+continue        for           import    return       var
+</code></pre>
+<p>以上关键字分为四组</p>
+<ul>
+<li><code>const</code> <code>func</code> <code>import</code> <code>package</code> <code>type</code> <code>var</code>用来声明各种代码元素</li>
+<li><code>chan</code> <code>interface</code> <code>map</code> <code>struct</code>用做一些组合类型的字面表示</li>
+<li><code>break</code> <code>case</code> <code>continue</code> <code>default</code> <code>else</code> <code>fallthrough</code> <code>for</code> <code>goto</code> <code>if</code> <code>range</code> <code>return</code> <code>select</code> <code>switch</code>用在流程控制语句中</li>
+<li><code>defer</code> <code>go</code>是有特殊作用的流程控制语句</li>
+</ul>
+<h1 id="golang内置类型">Golang内置类型</h1>
+<pre><code class="language-go">bool
+int8 uint8 int16 uint16 int32 uint32 int64 uint64 int uint uintptr
+float32 float64
+complex64 complex128
+string
+</code></pre>
+<p>出bool和string类型, 其他15种内置类型都称之为数值类型<br>
+还有两种内置类型别名:</p>
+<ul>
+<li><code>byte</code>是<code>uint8</code>的别名, 看做同一类型, 一般多指ASCII字符</li>
+<li><code>rune</code>是<code>int32</code>的别名, ... 一般多指utf-8字符(Unicode码点)<br>
+浮点数都是使用<a href="https://zh.wikipedia.org/wiki/IEEE_754">IEEE-754</a>格式存储</li>
+</ul>
+<h2 id="特殊的类型">特殊的类型</h2>
+<p><code>uintptr</code> <code>int</code> <code>uint</code>的类型的尺寸依赖具体的编译器实现, 可能是64位, 也可能是32位<br>
+<code>complex64</code> == <code>float32</code>(实部) + <code>float32</code>(虚部)<br>
+<code>complex128</code> == <code>float64</code>(实部) + <code>float64</code>(虚部)</p>
+<h2 id="整型字面量形式">整型字面量形式</h2>
+<pre><code class="language-go">0xf     // 十六进制
+0o17    // 八进制
+0b1111  // 二进制
+15      // 十进制
+</code></pre>
+<h2 id="运算操作符">运算操作符</h2>
+<p><code>^</code>做二元运算符时, 是异或操作, 相同为真, 不同为假; 做一元运算符时, 是取反操作, 和其他语言的(~)不一样<br>
+<code>&amp;^</code>清位 ==&gt; <code>m &amp;^ n</code> == <code>m &amp; (^n)</code><br>
+Golang支持无符号数, 所以没有无符号右移运算符<code>&gt;&gt;&gt;</code><br>
+Golang不支持幂运算符</p>
+<p>操作符运算的优先级</p>
+<pre><code class="language-go">*   /   %   &lt;&lt;  &gt;&gt;  &amp;   &amp;^
++   -   |   ^
+==  !=  &lt;   &lt;=  &gt;   &gt;=
+&amp;&amp;
+||
+</code></pre>
+<h1 id="函数声明和调用">函数声明和调用</h1>
+<pre><code class="language-go">func functionName(parameter list) (return list) {
+    body
+}
+</code></pre>
+<p>函数分五部分</p>
+<ul>
+<li><code>func</code>关键字</li>
+<li>函数名</li>
+<li>参数列表, 不支持参数默认值</li>
+<li>返回列表, &lt;= 1时, 不加&quot;()&quot;</li>
+<li><code>{</code>函数体<code>}</code></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Git常用命令]]></title>
+        <id>https://iccy.fun/wY2uMuktM/</id>
+        <link href="https://iccy.fun/wY2uMuktM/">
+        </link>
+        <updated>2020-03-10T16:47:27.000Z</updated>
+        <summary type="html"><![CDATA[<p>学习一下<code>Git</code>的常用命令, 以便后面的学习与工作中使用<code>Git</code></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>学习一下<code>Git</code>的常用命令, 以便后面的学习与工作中使用<code>Git</code></p>
+<!-- more -->
+<p>Git常用命令</p>
+<blockquote>
+<p>这两天在学习Git的使用, 虽然之前也使用过, 但仅限于add commit push pull等命令, 对于分支什么的都没用过, 所以找了教程来看看, 主要参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的教程</a>和一个<a href="https://learngitbranching.js.org/">在线Git练习网站</a></p>
+</blockquote>
+<blockquote>
+<p>注: 不会将参考教程时实际演示的指令记录下来, 因为这是不必要的</p>
+</blockquote>
+<hr>
+<h2 id="让我们开始吧">让我们开始吧</h2>
+<h3 id="配置git">配置Git</h3>
+<p>安装Git后执行以下命令</p>
+<pre><code class="language-shell">git config --global user.name &quot;Your name&quot;
+git config --global user.email &quot;Your email&quot;
+</code></pre>
+<p>Git是团队使用的版本控制系统, 每一次提交都是需要自报家门的, --global参数是表示该机器上所有的Git仓库都使用该配置, 当然也可以分不同的配置, 不过就不提了, 这个配置很适合个人机器</p>
+<p>配置ssh秘钥</p>
+<pre><code class="language-shell">ssh-keygen -t rsa -C &quot;Your email&quot;
+</code></pre>
+<hr>
+<h3 id="创建版本库">创建版本库</h3>
+<pre><code class="language-shell">git init # 创建一个版本库
+</code></pre>
+<h3 id="状态查看">状态查看</h3>
+<pre><code class="language-shell">git status # 查看仓库的状态, 是否有修改, 是否add
+</code></pre>
+<h3 id="添加到暂存区">添加到暂存区</h3>
+<pre><code class="language-shell">git add &lt;file name&gt; # 将工作区修改的改动添加到暂存区, 支持文件夹, 例如git add . 添加整个当前目录下所有的改动
+</code></pre>
+<h3 id="提交到仓库">提交到仓库</h3>
+<pre><code class="language-shell">git commit -m &quot;message&quot; # 对当前commit做一个简短的说明
+</code></pre>
+<h3 id="查看区别">查看区别</h3>
+<pre><code class="language-shell">git diff &lt;file name&gt; # 前提是未提交到仓库的修改, 可以查看当前修改后的文件和最新的仓库版本中的同文件的改动
+</code></pre>
+<h3 id="提交日志">提交日志</h3>
+<pre><code class="language-shell">git log # 查看所有的commit即提交说明
+git log --graph # 查看分支合并图
+</code></pre>
+<h3 id="版本回退">版本回退</h3>
+<pre><code class="language-shell">git reset [--soft | --mixed | --hard] &lt;commit&gt; # 回退到某个版本, --hard参数是不保存已存在的修改,　其他两个参数是保存修改, 默认参数是--soft
+</code></pre>
+<h3 id="历史命令">历史命令</h3>
+<pre><code class="language-shell">git reflog # 显示你使用过的历史命令
+</code></pre>
+<h3 id="撤销修改">撤销修改</h3>
+<pre><code class="language-shell">git checkout -- &lt;file name&gt; # 若文件在暂存区, 撤销修改就和版本库一样, 若文件在暂存区了, 撤销修改就回到了添加到暂存区后的状态
+git reset HEAD &lt;file name&gt; # 将暂存区的文件退回到工作区
+# 场景1: 文件还没有添加到暂存区, 使用git checkout -- &lt;file name&gt; 丢弃文件
+# 场景2: 文件已经添加到暂存区, 使用git reset HEAD &lt;file name&gt; 回到了场景1, 若要丢弃文件, 执行场景1, 若修改, 正常来即可, reset可以将暂存区的文件保存原理看[版本回退]
+</code></pre>
+<h3 id="删除被git追踪的文件">删除被Git追踪的文件</h3>
+<pre><code class="language-shell"># 先要删除文件
+git rm &lt;file name&gt; # 从版本库中删除该文件
+# 另一种是删错了
+git checkout -- &lt;file name&gt; 使用版本库中的版本替换工作区中的版本
+</code></pre>
+<h3 id="远程仓库">远程仓库</h3>
+<pre><code class="language-shell">git remote add origin git地址 # 将本地仓库与之关联, 这是先有本地仓库, origin就是远程仓库的名字, 也可以使用其他的, 但不推荐, 
+git clone git地址 # 这是先有远程仓库, 将其克隆下来
+</code></pre>
+<h3 id="push">push</h3>
+<pre><code class="language-shell">git push -u origin master # 第一次提交, 加上-u参数, 为以后提交简化命令, 默认参数就是origin master, 后面可以不用写, 但是你的远程还有一个dev分支的话, 要提交dev上就要指定参数了
+</code></pre>
+<h3 id="创建分支">创建分支</h3>
+<pre><code class="language-shell">git branch &lt;分支名&gt; # 创建分支
+git checkout &lt;分支名&gt; # 切换分支
+# 可以使用git checkout -b &lt;分支名&gt; 同时执行上面两条指令
+
+git switch &lt;分支名&gt; # 切换分支, 但是是新版Git才有的功能
+git switch -c &lt;分支名&gt; # 创建并切换分支
+
+git checkout -b &lt;本地分支&gt; &lt;origin/远程分支&gt;, 创建远程分支并关联到本地分支
+git branch --set-upstream-to=&lt;origin/远程分支&gt; &lt;本地分支&gt; # 设置本地分支和远程分支的关联
+</code></pre>
+<h3 id="查看分支">查看分支</h3>
+<pre><code class="language-shell">git branch # 查看当前仓库的分支
+</code></pre>
+<h3 id="删除分支">删除分支</h3>
+<pre><code class="language-shell">git branch -d &lt;分支名&gt; # 删除分支, 假如有一个分支不需要合并, 此时删除就需要使用-D参数来强制删除该分支
+</code></pre>
+<h3 id="合并分支">合并分支</h3>
+<pre><code class="language-shell">git merge &lt;分支名&gt; # 将某分支合并到当前分支, 快速合并和手动合并(有冲突), 使用Fast forward模式, 下面禁用该模式
+git merge --no-ff -m &quot;message&quot; &lt;分支名&gt; # 将某分支合并到当前分支的同时创建一个commit来备注
+</code></pre>
+<h3 id="保存工作现场">保存工作现场</h3>
+<pre><code class="language-shell">git stash # 将当前工作现场保存起来, git status是干净的
+git stash list # 查看所有的工作现场
+git stash apply # 恢复工作现场, stash内容不删除, 需要使用git stash drop来删除
+git stash pop # 恢复工作现场的同时删除stash内容
+</code></pre>
+<h3 id="复制某次提交">复制某次提交</h3>
+<pre><code class="language-shell">git cherry-pick &lt;commit&gt; 将该次提交复制到当前分支上, 可以在多条分支上修复同一个bug
+</code></pre>
+<h3 id="查看远程仓库信息">查看远程仓库信息</h3>
+<pre><code class="language-shell">git remote -v
+</code></pre>
+<h3 id="标签">标签</h3>
+<pre><code class="language-shell">git tag &lt;tag&gt; &lt;commit&gt; # 给某次commit打上标签, 好记, 若没有commit参数, 就是默认当前分支的最新commit
+git tag # 查看所有标签
+git tag &lt;tag&gt; -m &quot;message&quot; &lt;commit&gt; # 创建带有说明的标签
+git tag -d &lt;tag&gt; # 删除标签
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://iccy.fun/7NHiOmMT8/</id>
+        <link href="https://iccy.fun/7NHiOmMT8/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>

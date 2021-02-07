@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>自制操作系统(1) | RunThem</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://iccy.fun/favicon.ico?v=1612714486768">
+<link rel="stylesheet" href="https://iccy.fun/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="让我们来跟《一个64位操作系统的设计与实现》写出一个属于自己的操作系统吧!
+
+环境搭建
+前言
+实际上我在年前就把&lt;操作系统真相还原&gt;这本书看完了, 里面的代码也跟着敲了一遍, 但是出于刚学操作系统, 并且还是照着书上抄代码, 所..." />
+    <meta name="keywords" content="操作系统,Linux,数据结构" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://iccy.fun">
+        <img src="https://iccy.fun/images/avatar.png?v=1612714486768" class="site-logo">
+        <h1 class="site-title">RunThem</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/RunThem" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <a href="mailto:iccy.fun@outlook.com"><img src="media/images/mail.png" width="18px" /></a>
+    </div>
+    <div class="site-description">
+      人生不断地重复两件事, 其中之一就是做出选择!
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://iccy.fun/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">自制操作系统(1)</h2>
+            <div class="post-date">2021-02-07</div>
+            
+            <div class="post-content" v-pre>
+              <p>让我们来跟《一个64位操作系统的设计与实现》写出一个属于自己的操作系统吧!</p>
+<!-- more -->
+<h1 id="环境搭建">环境搭建</h1>
+<h2 id="前言">前言</h2>
+<p>实际上我在年前就把&lt;操作系统真相还原&gt;这本书看完了, 里面的代码也跟着敲了一遍, 但是出于刚学操作系统, 并且还是照着书上抄代码, 所以并没有记录学习过程, 如果有兴趣源码的话可以点<a href="https://github.com/iccy-code/kernel">这里</a><br>
+现在是在看另一本书, 同时想以后基于这本书上的系统进行改写扩充, 所以记录学习过程</p>
+<h2 id="环境">环境</h2>
+<p>Windows 10<br>
+WSL(gcc, nasm)<br>
+bochs</p>
+<h2 id="开始吧">开始吧</h2>
+<p>之所以不在Linux下而使用WSL是因为前几天我的Linux桌面崩了, 所以换到了Windows, 其实在Linux上更好搭建环境, 让我们开始吧<br>
+第一步是安装WSL和bochs, 这两个网上教程一大把, 再者也不难, 所以就不写了, 默认后来者是可以搞定这个的, 至于bochs配置文件也不难, 你在安装bochs时采用完整安装, 这样在bochs的目录下会有一个子目录dlxlinux, 进去后, 编辑bochsrc.bxrc这个文件, 里面就有一个很简单的配置文件, 看下面</p>
+<pre><code class="language-Markdown">###############################################################
+# bochsrc.txt file for DLX Linux disk image.
+###############################################################
+
+# how much memory the emulated machine will have
+megs: 32
+# 内存大小, bochs最大支持2G内存, 所以自己看着来
+
+# filename of ROM images
+romimage: file=../BIOS-bochs-latest
+vgaromimage: file=../VGABIOS-lgpl-latest
+# bios和vga文件, 后面的不要改, 改'\'前面的, 改成全路径的, 例如我的&quot;C:\Program Files\Bochs-2.6.11\BIOS-bochs-latest&quot;, 引号带上, 以为路径中有空格, 下面一个也一样
+
+# what disk images will be used 
+floppya: 1_44=floppya.img, status=inserted
+floppyb: 1_44=floppyb.img, status=inserted
+# 软盘类型, 这个是1.44MB软盘, 已插入, 我是没有配置这个的, 注释掉了, 再者, 看清楚, 是floppy(a/b/c/...)这种格式的, 有几个盘就往后写几个字母
+
+# hard disk
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path=&quot;hd10meg.img&quot;, cylinders=306, heads=4, spt=17
+# 硬盘, path也要写全路径的, 例如&quot;C:\Users\iccy\Desktop\kernel\d.img&quot;, 后面的参数可以自己查一下, 没有也没事, 有默认的配置
+
+# choose the boot disk.
+boot: disk
+# 使用什么启动, 软盘还是硬盘
+
+# default config interface is textconfig.
+#config_interface: textconfig
+#config_interface: wx
+
+#display_library: x
+# other choices: win32 sdl wx carbon amigaos beos macintosh nogui rfb term svga
+# 不知道是什么
+
+# where do we send log messages?
+log: bochsout.txt
+# 日志文件, 会在配置文件是同一个目录下的
+
+# disable the mouse, since DLX is text only
+mouse: enabled=0
+# 关闭鼠标, bochs中鼠标不好用, 再者我不写图形界面
+
+# set up IPS value and clock sync
+cpu: ips=15000000
+clock: sync=both
+# cpu的配置, 自己去百度查一下参数吧
+
+# enable key mapping, using US layout as default.
+#
+# NOTE: In Bochs 1.4, keyboard mapping is only 100% implemented on X windows.
+# However, the key mapping tables are used in the paste function, so 
+# in the DLX Linux example I'm enabling keyboard_mapping so that paste 
+# will work.  Cut&amp;Paste is currently implemented on win32 and X windows only.
+
+keyboard: keymap=../keymaps/x11-pc-us.map
+#keyboard: keymap=../keymaps/x11-pc-fr.map
+#keyboard: keymap=../keymaps/x11-pc-de.map
+#keyboard: keymap=../keymaps/x11-pc-es.map
+# 使用什么键盘, us是标准美式键盘, 也改成全路径, &quot;C:\Program Files\Bochs-2.6.11keymaps\x11-pc-us.map&quot;
+</code></pre>
+<p>若是还没有看懂的话还是推荐去看官方文档</p>
+<p>现在要启动bochs调试了, 但是有个很麻烦的事, 就是编译环境是Linux下, 而调试环境是Windows下, 不好搞啊, 但是还有办法的, 就是在WSL下bochs即可, 继续看, 这就是前文说的那个操作系统</p>
+<pre><code class="language-shell">iccy &lt; master⚡ &gt; ~/Desktop/kernel
+-&gt; ls
+bochs.log     boot   c.img   d.img  kernel  LICENSE   README.md  shell     thread
+bochsrc.bxrc  build  device  fs     lib     Makefile  run.sh     test.ps1  userprog
+iccy &lt; master⚡ &gt; ~/Desktop/kernel
+-&gt; bochsdbg.exe -q -f bochsrc.bxrc
+========================================================================
+                       Bochs x86 Emulator 2.6.11
+              Built from SVN snapshot on January 5, 2020
+                Timestamp: Sun Jan  5 08:36:00 CET 2020
+========================================================================
+00000000000i[      ] reading configuration from bochsrc.bxrc
+00000000000e[      ] bochsrc.bxrc:26: ataX-master/slave CHS set to 0/0/0 - autodetection enabled
+00000000000e[      ] bochsrc.bxrc:27: ataX-master/slave CHS set to 0/0/0 - autodetection enabled
+00000000000i[      ] installing win32 module as the Bochs GUI
+00000000000i[      ] using log file bochs.log
+Next at t=0
+(0) [0x0000fffffff0] f000:fff0 (unk. ctxt): jmpf 0xf000:e05b          ; ea5be000f0
+&lt;bochs:1&gt; c
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://iccy.fun/post-images/1582906699156.png" alt="" loading="lazy"></figure>
+<p>是的, 你没有看错, 在WSL中也是可以执行Windows中的应用的, 只要我们在Makefile中的某个地方加入bochsdbg.exe -q -f 配置文件路径, 就可以在一个终端里面完成所有的操作, 注意bochsdbg.exe是带调试的bochs, 而bochs.exe就单纯的是个虚拟机, -q是确认执行, 不然还有的窗口让你选择选项, -f是接配置文件</p>
+<h2 id="完结">完结</h2>
+<p>我可能没有说的太明白, 如果有问题的话可以通过我的博客左下角的邮箱联系我</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://iccy.fun/iNcexVdHF/" class="tag">
+                    操作系统
+                  </a>
+                
+                  <a href="https://iccy.fun/TUuXlI1Ie/" class="tag">
+                    Linux
+                  </a>
+                
+                  <a href="https://iccy.fun/KT7IbKUuo/" class="tag">
+                    数据结构
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
