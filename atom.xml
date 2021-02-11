@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://iccy.fun</id>
     <title>RunThem</title>
-    <updated>2021-02-07T17:41:01.609Z</updated>
+    <updated>2021-02-11T17:25:03.342Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://iccy.fun"/>
     <link rel="self" href="https://iccy.fun/atom.xml"/>
@@ -10,81 +10,6 @@
     <logo>https://iccy.fun/images/avatar.png</logo>
     <icon>https://iccy.fun/favicon.ico</icon>
     <rights>All rights reserved 2021, RunThem</rights>
-    <entry>
-        <title type="html"><![CDATA[Golang学习之入门]]></title>
-        <id>https://iccy.fun/so4r6yv9y/</id>
-        <link href="https://iccy.fun/so4r6yv9y/">
-        </link>
-        <updated>2021-02-07T15:33:49.000Z</updated>
-        <summary type="html"><![CDATA[<p><code>Golang</code>是<code>Google</code>开发的一门现代化的编程语言, 在这里记录一下它的语法</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><code>Golang</code>是<code>Google</code>开发的一门现代化的编程语言, 在这里记录一下它的语法</p>
-<!-- more -->
-<h1 id="golang关键字">Golang关键字</h1>
-<pre><code class="language-go">break           default       func      interface    select
-case            defer         go        map          struct
-chan            else          goto      package      switch
-const           fallthrough   if        range        type
-continue        for           import    return       var
-</code></pre>
-<p>以上关键字分为四组</p>
-<ul>
-<li><code>const</code> <code>func</code> <code>import</code> <code>package</code> <code>type</code> <code>var</code>用来声明各种代码元素</li>
-<li><code>chan</code> <code>interface</code> <code>map</code> <code>struct</code>用做一些组合类型的字面表示</li>
-<li><code>break</code> <code>case</code> <code>continue</code> <code>default</code> <code>else</code> <code>fallthrough</code> <code>for</code> <code>goto</code> <code>if</code> <code>range</code> <code>return</code> <code>select</code> <code>switch</code>用在流程控制语句中</li>
-<li><code>defer</code> <code>go</code>是有特殊作用的流程控制语句</li>
-</ul>
-<h1 id="golang内置类型">Golang内置类型</h1>
-<pre><code class="language-go">bool
-int8 uint8 int16 uint16 int32 uint32 int64 uint64 int uint uintptr
-float32 float64
-complex64 complex128
-string
-</code></pre>
-<p>出bool和string类型, 其他15种内置类型都称之为数值类型<br>
-还有两种内置类型别名:</p>
-<ul>
-<li><code>byte</code>是<code>uint8</code>的别名, 看做同一类型, 一般多指ASCII字符</li>
-<li><code>rune</code>是<code>int32</code>的别名, ... 一般多指utf-8字符(Unicode码点)<br>
-浮点数都是使用<a href="https://zh.wikipedia.org/wiki/IEEE_754">IEEE-754</a>格式存储</li>
-</ul>
-<h2 id="特殊的类型">特殊的类型</h2>
-<p><code>uintptr</code> <code>int</code> <code>uint</code>的类型的尺寸依赖具体的编译器实现, 可能是64位, 也可能是32位<br>
-<code>complex64</code> == <code>float32</code>(实部) + <code>float32</code>(虚部)<br>
-<code>complex128</code> == <code>float64</code>(实部) + <code>float64</code>(虚部)</p>
-<h2 id="整型字面量形式">整型字面量形式</h2>
-<pre><code class="language-go">0xf     // 十六进制
-0o17    // 八进制
-0b1111  // 二进制
-15      // 十进制
-</code></pre>
-<h2 id="运算操作符">运算操作符</h2>
-<p><code>^</code>做二元运算符时, 是异或操作, 相同为真, 不同为假; 做一元运算符时, 是取反操作, 和其他语言的(~)不一样<br>
-<code>&amp;^</code>清位 ==&gt; <code>m &amp;^ n</code> == <code>m &amp; (^n)</code><br>
-Golang支持无符号数, 所以没有无符号右移运算符<code>&gt;&gt;&gt;</code><br>
-Golang不支持幂运算符</p>
-<p>操作符运算的优先级</p>
-<pre><code class="language-go">*   /   %   &lt;&lt;  &gt;&gt;  &amp;   &amp;^
-+   -   |   ^
-==  !=  &lt;   &lt;=  &gt;   &gt;=
-&amp;&amp;
-||
-</code></pre>
-<h1 id="函数声明和调用">函数声明和调用</h1>
-<pre><code class="language-go">func functionName(parameter list) (return list) {
-    body
-}
-</code></pre>
-<p>函数分五部分</p>
-<ul>
-<li><code>func</code>关键字</li>
-<li>函数名</li>
-<li>参数列表, 不支持参数默认值</li>
-<li>返回列表, &lt;= 1时, 不加&quot;()&quot;</li>
-<li><code>{</code>函数体<code>}</code></li>
-</ul>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Git常用命令]]></title>
         <id>https://iccy.fun/wY2uMuktM/</id>
