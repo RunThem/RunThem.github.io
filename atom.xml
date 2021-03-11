@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://runthem.org</id>
+    <id>https://iccy.fun</id>
     <title>RunThem</title>
-    <updated>2021-03-11T15:11:43.080Z</updated>
+    <updated>2021-03-11T16:17:09.130Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://runthem.org"/>
-    <link rel="self" href="https://runthem.org/atom.xml"/>
+    <link rel="alternate" href="https://iccy.fun"/>
+    <link rel="self" href="https://iccy.fun/atom.xml"/>
     <subtitle>人生不断地重复两件事, 其中之一就是做出选择!</subtitle>
-    <logo>https://runthem.org/images/avatar.png</logo>
-    <icon>https://runthem.org/favicon.ico</icon>
+    <logo>https://iccy.fun/images/avatar.png</logo>
+    <icon>https://iccy.fun/favicon.ico</icon>
     <rights>All rights reserved 2021, RunThem</rights>
     <entry>
         <title type="html"><![CDATA[Golang学习之入门]]></title>
-        <id>https://runthem.org/so4r6yv9y/</id>
-        <link href="https://runthem.org/so4r6yv9y/">
+        <id>https://iccy.fun/so4r6yv9y/</id>
+        <link href="https://iccy.fun/so4r6yv9y/">
         </link>
         <updated>2021-02-07T15:33:49.000Z</updated>
         <summary type="html"><![CDATA[<p><code>Golang</code>是<code>Google</code>开发的一门现代化的编程语言, 在这里记录一下它的语法</p>
@@ -109,8 +109,8 @@ func main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[Git常用命令]]></title>
-        <id>https://runthem.org/wY2uMuktM/</id>
-        <link href="https://runthem.org/wY2uMuktM/">
+        <id>https://iccy.fun/wY2uMuktM/</id>
+        <link href="https://iccy.fun/wY2uMuktM/">
         </link>
         <updated>2020-03-10T16:47:27.000Z</updated>
         <summary type="html"><![CDATA[<p>学习一下<code>Git</code>的常用命令, 以便后面的学习与工作中使用<code>Git</code></p>
@@ -223,8 +223,8 @@ git tag -d &lt;tag&gt; # 删除标签
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://runthem.org/7NHiOmMT8/</id>
-        <link href="https://runthem.org/7NHiOmMT8/">
+        <id>https://iccy.fun/7NHiOmMT8/</id>
+        <link href="https://iccy.fun/7NHiOmMT8/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
