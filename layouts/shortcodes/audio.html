@@ -1,0 +1,5 @@
+<br><audio controls>
+    {{ if .Get "src" }}
+    <source {{ with .Get "src" }}src="{{ . }}" {{ end }}>
+    {{ end }}
+</audio>

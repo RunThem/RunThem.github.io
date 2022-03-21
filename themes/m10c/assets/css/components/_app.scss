@@ -1,0 +1,46 @@
+.app-header {
+  padding: 2.5em;
+  background-image: url("/sidebar.jpg");
+  background-size: cover;
+  text-align: center;
+}
+
+.app-header-avatar {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  border: 0.1rem solid $primary-color;
+}
+
+.app-container {
+  padding: 2.5rem;
+}
+
+.app-header-menu {
+  font-size: 1.5em;
+}
+
+.app-header-social {
+  font-size: 2em;
+  color: $lightest-color;
+  margin-top: 20%;
+  
+  a {
+    margin: 0 0.1em;
+  }
+}
+
+@media (min-width: 940px) {
+  .app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    min-height: 100vh;
+  }
+
+  .app-container {
+    max-width: 65rem;
+    margin-left: 20rem;
+  }
+}
