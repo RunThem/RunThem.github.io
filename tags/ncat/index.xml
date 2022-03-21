@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ncat on RunThem</title><link>https://iccy.fun/tags/ncat/</link><description>Recent content in ncat on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 11 Mar 2022 00:00:25 +0800</lastBuildDate><atom:link href="https://iccy.fun/tags/ncat/index.xml" rel="self" type="application/rss+xml"/><item><title>ncat 命令传输文件</title><link>https://iccy.fun/post/nc-ming-ling-chuan-shu-wen-jian/</link><pubDate>Fri, 11 Mar 2022 00:00:25 +0800</pubDate><guid>https://iccy.fun/post/nc-ming-ling-chuan-shu-wen-jian/</guid><description>作者: RunThem
+未经允许, 禁止转载, 尤其 CSDN, 违者必究
+nc - netcat netcat (nc是简写) 是用于在网络上读取, 写入, 重定向和加密数据的通用命令行工具. 它旨在成为您的瑞士军刀网络, 处理各种各样的安全测试和管理任务.
+但是它比较旧, 一般使用它的升级版 ncat, ncat 它有着更多的功能, 尤其是与其他的命令组合起来是更为强大的, 但我只介绍它在局域网下传输文件的能力.
+fix: 不用 nc 是它有个问题, 文件传输完成不会断开连接, 导致你无法判断文件是否传输完成.
+起因是我的旧电脑上有很多的文件需要传到我的新电脑上, 有几个G那么大, 此时需要一个局域网下可以传输文件的包.
+假设有两台电脑 A 和 B, A上有一个文件需要传递到 B 上.
+传输方式有两种, 一种是上传, 另一种是下载, 这两种是没有区别的.
+上传文件 将 A 当成客户端, B 当成服务器, 将文件上传到 B 上.
+1 2 3 4 5 # A nc {{B.ip}} {{B.</description></item></channel></rss>

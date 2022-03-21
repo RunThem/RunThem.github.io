@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tar on RunThem</title><link>https://iccy.fun/tags/tar/</link><description>Recent content in tar on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 10 Mar 2022 23:15:46 +0800</lastBuildDate><atom:link href="https://iccy.fun/tags/tar/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux tar 用法</title><link>https://iccy.fun/post/tar-yong-fa/</link><pubDate>Thu, 10 Mar 2022 23:15:46 +0800</pubDate><guid>https://iccy.fun/post/tar-yong-fa/</guid><description>作者: RunThem
+未经允许, 禁止转载, 尤其 CSDN, 违者必究
+tar - 归档 tar 可以将许多文件/目录一起保存至一个单独的文件中, 这样, 避免了文件多, 分散导致难以管理; 还有就是有些命令只能对文件其作用, 无法对目录使用(如压缩命令), tar 就可以解决这个问题了.
+tar 归档后的文件使用 .tar 结尾
+启动子命令 tar 使用参数很多, 但只有 5 个参数分别启动不同的子命令, 以下的参数都每次只能存在一个, 可以与其他的参数连用:
+-c: 创建档案
+-x: 解压档案
+-t: 在不解压的情况下查看档案中包含的文件/目录
+-r: 向已有的档案中添加文件
+-u: 更新原档案中已存在的文件
+固定参数 -f: 档案的名字, 该参数是必须的, 只能是最后一个参数, 后面必须接档案名字
+常见的可选参数 -z: 使用gzip压缩解压缩
+-j: 使用bz2压缩解压缩
+-J: 使用xz压缩解压缩
+-v: 显示详细过程
+-O: 将文件解开到标准输出
+-C {{path}}: 解压到制定的路径</description></item></channel></rss>
