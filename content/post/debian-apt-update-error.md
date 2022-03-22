@@ -76,18 +76,6 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 curl -fsSL  https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/sublimehq-pub.gpg
 ```
 
-```c
-#include <stdio.h>
-
-int main() {
-	printf("helsdf");
-	
-	return 0;
-}
-```
-<!-- {{< vimeo 146022717 >}} -->
-{{< audio src="https://blog.reez.me/audio/test.mp3" >}}
-
 这样既修改了目标路径, 又使用了 `gpg` 加密 `源公钥`.
 
 这样应该就没有问题了, 至少我这边是没有问题的, 笑.
