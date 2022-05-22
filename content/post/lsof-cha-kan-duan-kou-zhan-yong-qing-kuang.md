@@ -14,10 +14,10 @@ tags = [
 > 未经允许, 禁止转载, 尤其 `CSDN`, 违者必究
 
 # Linux查看端口占用情况
-在 `Linux` 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 `lsof` 的常见用法
+在 `Linux` 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 `lsof` 的常见用法.
 
 ## lsof
-`lsof(list open files)` 是一个列出当前系统打开文件的工具, 开源在 [`https://github.com/lsof-org/lsof`](https://github.com/lsof-org/lsof).
+`lsof(list open files)` 是一个列出当前系统打开文件的工具, 开源在{{< url src="https://github.com/lsof-org/lsof" >}}.
 
 `lsof` 查看端口占用语法格式:
 

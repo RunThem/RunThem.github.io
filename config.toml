@@ -39,14 +39,14 @@ publishDir = 'docs'
 [markup.highlight]
   lineNos = true
   tabWidth = 2
-    noClasses = true
-  style = 'manni' # https://swapoff.org/chroma/playground
+  noClasses = true
+  style = 'xcode-dark' # https://swapoff.org/chroma/playground
 
 # My theme
 [params.style]
-  #bgImage = 'images/N90.jpg'
+  bgImage = 'images/N90.jpg'
   darkestColor = '#135050'
   darkColor = '#212121'
   lightColor = '#d6d6d6'
   lightestColor = '#d3d3d3'
-  primaryColor = '#ffffff'
+  primaryColor = ''

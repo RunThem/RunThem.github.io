@@ -31,11 +31,11 @@ deb [arch=amd64] https://download.docker.com/linux/debian bookworm stable
 
 源连接后面的 `bookworm` 就是你的系统版本, 源更新就是从上面的源里面去找对应系统的 `Release` 文件, 那我们看一下这个 `Url` 下有什么文件.
 
-![1.png](https://runthem.github.io/images/debian-apt-update-error/1.png)
+![1.png](/images/debian-apt-update-error/1.png)
 
 `gpg` 是源的公钥, 用于验证的, `dists` 就是真正的包所在, 下图就是点进去的目录, 可以看到是没有我的系统版本(`bookworm`)的源的, 这就是更新源报错的问题.
 
-![2.png](https://runthem.github.io/images/debian-apt-update-error/2.png)
+![2.png](/images/debian-apt-update-error/2.png)
 
 解决的方法就是将源连接中系统版本调整成源中存在的与你的版本最近的版本, 比如我是 `bookworm`, 就改成 `bullseye`, 就可以了, 这两个版本差别不大, 一个是稳定版, 一个是测试版.
 

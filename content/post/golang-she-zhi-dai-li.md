@@ -15,7 +15,7 @@ tags = [
 # Golang设置代理
 在最近编译一个 `go` 语言的包, 由于国内某些原因, 依赖根本下不下来, 只能使用代理了.
 
-国内比较好的镜像站是 [`https://goproxy.io`](https://goproxy.io) 这个网站, 执行以下命令即可:
+国内比较好的镜像站是 {{< url src="https://goproxy.io" >}} 这个网站, 执行以下命令即可:
 
 ```sh
 go env -w GOPROXY=https://proxy.golang.com.cn,direct

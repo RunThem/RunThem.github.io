@@ -1,0 +1,9 @@
+{{ if .Get "src" }}
+    <a {{ with .Get "src" }}href="{{ . }}" {{ end }}>
+        <code>
+            {{ with .Get "src" }}
+            {{ . }}
+            {{ end }}
+        </code>
+    </a>
+{{ end }}
