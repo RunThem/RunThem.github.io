@@ -2,7 +2,7 @@
 title = "Golang设置代理"
 date = 2022-03-21T00:09:03+08:00
 draft = false
-description = "市地方个好人市地方后"
+description = "Golang设置代理"
 tags = [
 	"Linux",
 	"Golang"
