@@ -36,4 +36,4 @@ tar 归档后的文件使用 .tar 结尾
 -J: 使用xz压缩解压缩
 -v: 显示详细过程
 -O: 将文件解开到标准输出
--C {{path}}: 解压到制定的路径</description></item><item><title>About</title><link>https://iccy.fun/about/</link><pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate><guid>https://iccy.fun/about/</guid><description>Hello World! 你好, 欢迎来到我的站点!</description></item></channel></rss>
+-C {{path}}: 解压到制定的路径</description></item><item><title>About</title><link>https://iccy.fun/about/</link><pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate><guid>https://iccy.fun/about/</guid><description>Hello World! 1 2 3 4 5 6 7 #include &amp;lt;stdio.h&amp;gt; int main(void) { printf(&amp;#34;Hello World!\n&amp;#34;); return 0; }</description></item></channel></rss>
