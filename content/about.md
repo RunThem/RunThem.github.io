@@ -7,5 +7,13 @@ author = "Hugo Authors"
 +++
 
 # Hello World!
+```c
+#include <stdio.h>
 
-你好, 欢迎来到我的站点!
+int main(void) {
+	printf("Hello World!\n");
+
+	return 0;
+}
+```
+
