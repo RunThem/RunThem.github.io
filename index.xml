@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RunThem</title><link>https://iccy.fun/</link><description>Recent content on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 22 May 2022 18:12:44 +0800</lastBuildDate><atom:link href="https://iccy.fun/index.xml" rel="self" type="application/rss+xml"/><item><title>lsof 查看端口占用情况</title><link>https://iccy.fun/post/lsof-cha-kan-duan-kou-zhan-yong-qing-kuang/</link><pubDate>Sun, 22 May 2022 18:12:44 +0800</pubDate><guid>https://iccy.fun/post/lsof-cha-kan-duan-kou-zhan-yong-qing-kuang/</guid><description>作者: RunThem 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-Linux查看端口占用情况 在 Linux 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 lsof 的常见用法
-lsof lsof(list open files) 是一个列出当前系统打开文件的工具, 开源在 https://github.com/lsof-org/lsof.
+Linux查看端口占用情况 在 Linux 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 lsof 的常见用法.
+lsof lsof(list open files) 是一个列出当前系统打开文件的工具, 开源在 https://github.com/lsof-org/lsof .
 lsof 查看端口占用语法格式:
 1 lsof -i:{port} 实例 让我们来看以下 3000 端口的占用, 这是 gitea 默认的端口.
 1 2 3 4 5 6 7 8 9 10 11 12 $ sudo lsof -i:3000 # lsof需要root权限哦 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME gitea 848 gitea 13u IPv6 23025 0t0 TCP *:3000 (LISTEN) # COMMAND: 进程的名称 # PID: 进程标识符 # USER: 进程所有者 # FD: 文件描述符 # TYPE: 文件类型 # DEVICE: 指定磁盘的名称 # SIZE: 文件大小 # NODE: 索引节点 # NAME: 打开文件的确切名称 更多用法 1 2 3 4 5 6 7 8 9 lsof -i:8080 # 查看8080端口占用 lsof abc.</description></item><item><title>Golang设置代理</title><link>https://iccy.fun/post/golang-she-zhi-dai-li/</link><pubDate>Mon, 21 Mar 2022 00:09:03 +0800</pubDate><guid>https://iccy.fun/post/golang-she-zhi-dai-li/</guid><description>作者: RunThem
