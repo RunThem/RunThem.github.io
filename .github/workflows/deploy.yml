@@ -10,17 +10,18 @@ env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
         submodules: false
+        fetch-depth: 0
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.3.1
+      uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.61.0'
+        hugo-version: '0.110.0'
 
     - name: Build
       run: hugo --minify
@@ -29,7 +30,7 @@ jobs:
       run: touch ./docs/.nojekyll
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.1
+      uses: peaceiris/actions-gh-pages@v3
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: pages
