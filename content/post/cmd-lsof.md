@@ -1,5 +1,5 @@
 +++
-title = "lsof 查看端口占用情况"
+title = "[cmd] lsof 查看端口占用"
 date = 2022-05-22T18:12:44+08:00
 draft = false
 description = "lsof 查看端口占用情况"
@@ -13,10 +13,13 @@ tags = [
 > 作者: RunThem
 > 未经允许, 禁止转载, 尤其 `CSDN`, 违者必究
 
-# Linux查看端口占用情况
+# 引言
+
 在 `Linux` 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 `lsof` 的常见用法.
 
-## lsof
+---
+
+## 1. lsof 介绍
 `lsof(list open files)` 是一个列出当前系统打开文件的工具, 开源在{{< url src="https://github.com/lsof-org/lsof" >}}.
 
 `lsof` 查看端口占用语法格式:
@@ -25,7 +28,7 @@ tags = [
 lsof -i:{port}
 ```
 
-### 实例
+## 2. 演示
 让我们来看以下 `3000` 端口的占用, 这是 `gitea` 默认的端口.
 
 ```shell
@@ -43,7 +46,7 @@ gitea   848 gitea   13u  IPv6  23025      0t0  TCP *:3000 (LISTEN)
 # NAME:    打开文件的确切名称
 ```
 
-### 更多用法
+## 3. 其他用法
 ```shell
 lsof -i:8080         # 查看8080端口占用
 lsof abc.txt         # 显示开启文件abc.txt的进程
@@ -56,6 +59,6 @@ lsof -d 4            # 显示使用fd为4的进程
 lsof -i -U           # 显示所有打开的端口和UNIX domain文件
 ```
 
-## other
+## 4. other
 `netstat` 是一个很老牌的网络工具.
 `ss` 和 `ip` 都是新的取代 `netstat` 的工具, 但是旧的Linux发行版不一定有这些.

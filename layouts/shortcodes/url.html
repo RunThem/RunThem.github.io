@@ -1,9 +1,8 @@
-{{ if .Get "src" }}
-    <a {{ with .Get "src" }}href="{{ . }}" {{ end }}>
-        <code>
-            {{ with .Get "src" }}
-            {{ . }}
-            {{ end }}
-        </code>
-    </a>
-{{ end }}
+<a {{ with .Get 0 }}href="{{ . }}" {{ end }}>
+    <code>
+        {{ with .Get 0 }}
+        {{ . }}
+        {{ end }}
+    </code>
+</a>
+<br>

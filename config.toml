@@ -42,6 +42,12 @@ publishDir = 'docs'
   noClasses = true
   style = 'xcode-dark' # https://swapoff.org/chroma/playground
 
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 # My theme
 [params.style]
   bgImage = 'images/N90.jpg'
