@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on RunThem</title><link>https://iccy.fun/tags/golang/</link><description>Recent content in Golang on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 21 Mar 2022 00:09:03 +0800</lastBuildDate><atom:link href="https://iccy.fun/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang设置代理</title><link>https://iccy.fun/post/golang-she-zhi-dai-li/</link><pubDate>Mon, 21 Mar 2022 00:09:03 +0800</pubDate><guid>https://iccy.fun/post/golang-she-zhi-dai-li/</guid><description>作者: RunThem
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on RunThem</title><link>https://iccy.fun/tags/golang/</link><description>Recent content in Golang on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 21 Mar 2022 00:09:03 +0800</lastBuildDate><atom:link href="https://iccy.fun/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Golang配置代理</title><link>https://iccy.fun/post/golang-pei-zhi-dai-li/</link><pubDate>Mon, 21 Mar 2022 00:09:03 +0800</pubDate><guid>https://iccy.fun/post/golang-pei-zhi-dai-li/</guid><description>作者: RunThem
 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-Golang设置代理 在最近编译一个 go 语言的包, 由于国内某些原因, 依赖根本下不下来, 只能使用代理了.
-国内比较好的镜像站是 https://goproxy.io 这个网站, 执行以下命令即可:
+引言 在最近编译一个 go 语言的包, 由于国内某些原因, 依赖根本下不下来, 只能使用代理了.
+1. 配置镜像 国内比较好的镜像站是 这个网站, 执行以下命令即可:
 1 go env -w GOPROXY=https://proxy.golang.com.cn,direct 这样就可以了.</description></item></channel></rss>

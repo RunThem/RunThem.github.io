@@ -1,39 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on RunThem</title><link>https://iccy.fun/tags/linux/</link><description>Recent content in Linux on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 22 May 2022 18:12:44 +0800</lastBuildDate><atom:link href="https://iccy.fun/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>lsof 查看端口占用情况</title><link>https://iccy.fun/post/lsof-cha-kan-duan-kou-zhan-yong-qing-kuang/</link><pubDate>Sun, 22 May 2022 18:12:44 +0800</pubDate><guid>https://iccy.fun/post/lsof-cha-kan-duan-kou-zhan-yong-qing-kuang/</guid><description>作者: RunThem 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-Linux查看端口占用情况 在 Linux 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 lsof 的常见用法.
-lsof lsof(list open files) 是一个列出当前系统打开文件的工具, 开源在 https://github.com/lsof-org/lsof .
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on RunThem</title><link>https://iccy.fun/tags/linux/</link><description>Recent content in Linux on RunThem</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 07 Nov 2022 22:52:21 +0800</lastBuildDate><atom:link href="https://iccy.fun/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>[cmd] Doxygen 生成文档</title><link>https://iccy.fun/post/cmd-doxygen/</link><pubDate>Mon, 07 Nov 2022 22:52:21 +0800</pubDate><guid>https://iccy.fun/post/cmd-doxygen/</guid><description> 作者: RunThem 未经允许, 禁止转载, 尤其 CSDN, 违者必究
+引言 学习编程也有几年了, 对于编码过程中的注释只是一个暧昧的态度, 看开源代码时觉得有注释/文档真棒, 到自己写代码时对于注释就有点随意了, 写肯定是写的, 但是写的比较随意, 最近想要写一个库, 但是呢, 对于写文档就不太喜欢了, 觉得太麻烦了, 可是一个库怎么可以没有文档呢, 于是就查了查, 有这么一个东西 &amp;ndash; Doxygen, 可以通过注释生成文档.
+1. 介绍 Doxygen 文档生成器, . 安装过程就省略了.
+2. 配置 Doxygen 工作环境 在一个工程中先需要生成 Doxygen 的配置文件, 默认的配置文件名为 Doxygen.
+1 2 doxygen -s -g {{Doxygen config filename}} # `-s` 去掉配置文件中的注释, 结尾也可以指定配置文件名 doxygen -s -g doxygen.ini # 我的常用命令</description></item><item><title>[cmd] lsof 查看端口占用</title><link>https://iccy.fun/post/cmd-lsof/</link><pubDate>Sun, 22 May 2022 18:12:44 +0800</pubDate><guid>https://iccy.fun/post/cmd-lsof/</guid><description>作者: RunThem 未经允许, 禁止转载, 尤其 CSDN, 违者必究
+引言 在 Linux 使用过程中经常需要看看某个端口是由哪个进程占用了, 本文来记录以下Linux下 lsof 的常见用法.
+1. lsof 介绍 lsof(list open files) 是一个列出当前系统打开文件的工具, 开源在 .
 lsof 查看端口占用语法格式:
-1 lsof -i:{port} 实例 让我们来看以下 3000 端口的占用, 这是 gitea 默认的端口.
-1 2 3 4 5 6 7 8 9 10 11 12 $ sudo lsof -i:3000 # lsof需要root权限哦 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME gitea 848 gitea 13u IPv6 23025 0t0 TCP *:3000 (LISTEN) # COMMAND: 进程的名称 # PID: 进程标识符 # USER: 进程所有者 # FD: 文件描述符 # TYPE: 文件类型 # DEVICE: 指定磁盘的名称 # SIZE: 文件大小 # NODE: 索引节点 # NAME: 打开文件的确切名称 更多用法 1 2 3 4 5 6 7 8 9 lsof -i:8080 # 查看8080端口占用 lsof abc.</description></item><item><title>Golang设置代理</title><link>https://iccy.fun/post/golang-she-zhi-dai-li/</link><pubDate>Mon, 21 Mar 2022 00:09:03 +0800</pubDate><guid>https://iccy.fun/post/golang-she-zhi-dai-li/</guid><description>作者: RunThem
+1 lsof -i:{port} 2. 演示 让我们来看以下 3000 端口的占用, 这是 gitea 默认的端口.
+1 2 3 4 5 6 7 8 9 10 11 12 $ sudo lsof -i:3000 # lsof需要root权限哦 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME gitea 848 gitea 13u IPv6 23025 0t0 TCP *:3000 (LISTEN) # COMMAND: 进程的名称 # PID: 进程标识符 # USER: 进程所有者 # FD: 文件描述符 # TYPE: 文件类型 # DEVICE: 指定磁盘的名称 # SIZE: 文件大小 # NODE: 索引节点 # NAME: 打开文件的确切名称 3.</description></item><item><title>Golang配置代理</title><link>https://iccy.fun/post/golang-pei-zhi-dai-li/</link><pubDate>Mon, 21 Mar 2022 00:09:03 +0800</pubDate><guid>https://iccy.fun/post/golang-pei-zhi-dai-li/</guid><description>作者: RunThem
 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-Golang设置代理 在最近编译一个 go 语言的包, 由于国内某些原因, 依赖根本下不下来, 只能使用代理了.
-国内比较好的镜像站是 https://goproxy.io 这个网站, 执行以下命令即可:
+引言 在最近编译一个 go 语言的包, 由于国内某些原因, 依赖根本下不下来, 只能使用代理了.
+1. 配置镜像 国内比较好的镜像站是 这个网站, 执行以下命令即可:
 1 go env -w GOPROXY=https://proxy.golang.com.cn,direct 这样就可以了.</description></item><item><title>Debian更新源失败</title><link>https://iccy.fun/post/debian-apt-update-error/</link><pubDate>Sun, 13 Mar 2022 15:17:56 +0800</pubDate><guid>https://iccy.fun/post/debian-apt-update-error/</guid><description>作者: RunThem
 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-apt更新源失败 由于我使用的 Linux 发行版是 Debian, 不会向 Arch 那样经常需要更新, 我都是几个月才更新一次的, 最近我更新了一次, 当时并没有发生什么问题, 出现问题的是昨天晚上, 我想装 Docker, 但是当我按官网文档去执行的时候, 再次执行 apt update 就出现问题了.
+引言 由于我使用的 Linux 发行版是 Debian, 不会向 Arch 那样经常需要更新, 我都是几个月才更新一次的, 最近我更新了一次, 当时并没有发生什么问题, 出现问题的是昨天晚上, 我想装 Docker, 但是当我按官网文档去执行的时候, 再次执行 apt update 就出现问题了.
 经过看报错, 一共是有两个问题的
-does not have a Release file. Updating from such a repository can't be done securely, and is therefore disabled by default Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg) 一个是错误, 一个是告警, 首先说明一下, 这两个问题都是我使用的是 Debian 测试源的情况下出现的, 我在更新源之前是 bullseye, 更新后成了 bookworm, 你可以使用 cat /etc/os-release 查看你是什么版本的系统.</description></item><item><title>ncat 命令传输文件</title><link>https://iccy.fun/post/nc-ming-ling-chuan-shu-wen-jian/</link><pubDate>Fri, 11 Mar 2022 00:00:25 +0800</pubDate><guid>https://iccy.fun/post/nc-ming-ling-chuan-shu-wen-jian/</guid><description>作者: RunThem
+does not have a Release file. Updating from such a repository can&amp;rsquo;t be done securely, and is therefore disabled by default Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg) 一个是错误, 一个是告警, 首先说明一下, 这两个问题都是我使用的是 Debian 测试源的情况下出现的, 我在更新源之前是 bullseye, 更新后成了 bookworm, 你可以使用 cat /etc/os-release 查看你是什么版本的系统.</description></item><item><title>[cmd] ncat 命令传输文件</title><link>https://iccy.fun/post/cmd-ncat/</link><pubDate>Fri, 11 Mar 2022 00:00:25 +0800</pubDate><guid>https://iccy.fun/post/cmd-ncat/</guid><description>作者: RunThem
 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-nc - netcat netcat (nc是简写) 是用于在网络上读取, 写入, 重定向和加密数据的通用命令行工具. 它旨在成为您的瑞士军刀网络, 处理各种各样的安全测试和管理任务.
+引言 起因是我的旧电脑上有很多的文件需要传到我的新电脑上, 有几个G那么大, 此时需要一个局域网下可以传输文件的命令.
+netcat (nc是简写) 是用于在网络上读取, 写入, 重定向和加密数据的通用命令行工具. 它旨在成为您的瑞士军刀网络, 处理各种各样的安全测试和管理任务.
 但是它比较旧, 一般使用它的升级版 ncat, ncat 它有着更多的功能, 尤其是与其他的命令组合起来是更为强大的, 但我只介绍它在局域网下传输文件的能力.
 fix: 不用 nc 是它有个问题, 文件传输完成不会断开连接, 导致你无法判断文件是否传输完成.
-起因是我的旧电脑上有很多的文件需要传到我的新电脑上, 有几个G那么大, 此时需要一个局域网下可以传输文件的包.
-假设有两台电脑 A 和 B, A上有一个文件需要传递到 B 上.
+1. 准备工作 假设有两台电脑 A 和 B, A上有一个文件需要传递到 B 上.
 传输方式有两种, 一种是上传, 另一种是下载, 这两种是没有区别的.
-上传文件 将 A 当成客户端, B 当成服务器, 将文件上传到 B 上.
-1 2 3 4 5 # A nc {{B.ip}} {{B.</description></item><item><title>Linux tar 用法</title><link>https://iccy.fun/post/tar-yong-fa/</link><pubDate>Thu, 10 Mar 2022 23:15:46 +0800</pubDate><guid>https://iccy.fun/post/tar-yong-fa/</guid><description>作者: RunThem
+1.1 上传文件 将 A 当成客户端, B 当成服务器, 将文件上传到 B 上.
+1 2 3 4 5 # A nc {{B.ip}} {{B.port}} &amp;lt; {{file}} # 将文件上传至服务器指定的端口 # B nc -l -p {{B.</description></item><item><title>[cmd] tar 归档文件</title><link>https://iccy.fun/post/cmd-tar/</link><pubDate>Thu, 10 Mar 2022 23:15:46 +0800</pubDate><guid>https://iccy.fun/post/cmd-tar/</guid><description>作者: RunThem
 未经允许, 禁止转载, 尤其 CSDN, 违者必究
-tar - 归档 tar 可以将许多文件/目录一起保存至一个单独的文件中, 这样, 避免了文件多, 分散导致难以管理; 还有就是有些命令只能对文件其作用, 无法对目录使用(如压缩命令), tar 就可以解决这个问题了.
+引言 tar 可以将许多文件/目录一起保存至一个单独的文件中, 这样, 避免了文件多, 分散导致难以管理; 还有就是有些命令只能对文件其作用, 无法对目录使用(如压缩命令), tar 就可以解决这个问题了.
 tar 归档后的文件使用 .tar 结尾
-启动子命令 tar 使用参数很多, 但只有 5 个参数分别启动不同的子命令, 以下的参数都每次只能存在一个, 可以与其他的参数连用:
+1. 子命令 tar 使用参数很多, 但只有 5 个参数分别启动不同的子命令, 以下的参数都每次只能存在一个, 可以与其他的参数连用:
 -c: 创建档案
 -x: 解压档案
 -t: 在不解压的情况下查看档案中包含的文件/目录
 -r: 向已有的档案中添加文件
 -u: 更新原档案中已存在的文件
-固定参数 -f: 档案的名字, 该参数是必须的, 只能是最后一个参数, 后面必须接档案名字
-常见的可选参数 -z: 使用gzip压缩解压缩
+2. 参数 tar 参数众多, 这里只介绍常用的部分.
+2.1 固定参数 -f: 档案的名字, 该参数是必须的, 只能是最后一个参数, 后面必须接档案名字
+2.2 常见的可选参数 -z: 使用gzip压缩解压缩
 -j: 使用bz2压缩解压缩
 -J: 使用xz压缩解压缩
 -v: 显示详细过程
 -O: 将文件解开到标准输出
--C {{path}}: 解压到制定的路径</description></item></channel></rss>
+-C {{path}}: 解压到制定的路径
+3. 使用格式 1 tar -[zjJ][cxtru][v]f *.</description></item></channel></rss>
