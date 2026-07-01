@@ -1,58 +1,63 @@
-baseURL = 'https://iccy.fun'
-title = 'RunThem'
-theme = 'm10c'
+baseURL = "https://runthem.org"
+title = "RunThem"
+theme = "m10c"
 
 paginate = 12
-publishDir = 'docs'
+publishDir = "docs"
 
 [menu]
-  [[menu.main]]
-    identifier = 'home'
-    name = 'Home'
-    url = '/'
-    weight = 1
-  [[menu.main]]
-    identifier = 'tags'
-    name = 'Tags'
-    url = '/tags/'
-    weight = 2
-  [[menu.main]]
-    identifier = 'about'
-    name = 'About'
-    url = '/about/'
-    weight = 3
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 2
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 3
 
 [params]
-  author = 'RunThem'
-  avatar = 'images/N90.jpg'
-  description = 'Hello C, Golang.'
-  menu_item_separator = '<br>' # \n
-  [[params.social]]
-    icon = 'github'
-    name = 'Github'
-    url = 'https://github.com/runthem'
-  [[params.social]]
-    icon = 'mail'
-    name = 'Mail'
-    url = 'mailto:iccy.fun@outlook.com'
+author = "RunThem"
+avatar = "images/N90.jpg"
+description = "Hello C, Golang."
+menu_item_separator = "<br>"  # \n
 
-[markup.highlight]
-  lineNos = true
-  tabWidth = 2
-  noClasses = true
-  style = 'xcode-dark' # https://swapoff.org/chroma/playground
+[[params.social]]
+icon = "github"
+name = "Github"
+url = "https://github.com/runthem"
 
-[markup]
-  defaultMarkdownHandler = "goldmark"
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[[params.social]]
+icon = "mail"
+name = "Mail"
+url = "mailto:iccy.fun@outlook.com"
 
 # My theme
 [params.style]
-  bgImage = 'images/N90.jpg'
-  darkestColor = '#135050'
-  darkColor = '#212121'
-  lightColor = '#d6d6d6'
-  lightestColor = '#d3d3d3'
-  primaryColor = ''
+bgImage = "images/N90.jpg"
+darkestColor = "#135050"
+darkColor = "#212121"
+lightColor = "#d6d6d6"
+lightestColor = "#d3d3d3"
+primaryColor = ""
+
+[markup]
+defaultMarkdownHandler = "goldmark"
+
+[markup.highlight]
+lineNos = true
+tabWidth = 2
+noClasses = true
+style = "xcode-dark"  # https://swapoff.org/chroma/playground
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
